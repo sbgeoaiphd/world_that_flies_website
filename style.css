@@ -1,0 +1,89 @@
+@font-face {
+  font-family: "EB Garamond";
+  src: url("assets/eb-garamond.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "EB Garamond";
+  src: url("assets/eb-garamond-italic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  color: #232922;
+  background: #f7f3e9;
+  font: 100%/1.4 "EB Garamond", Georgia, serif;
+}
+
+body {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: 100vh;
+  min-height: 100svh;
+  max-width: 84rem;
+  margin: auto;
+  padding: clamp(1.25rem, 5vw, 4rem);
+  text-align: center;
+}
+
+main {
+  align-self: center;
+  padding: clamp(2.5rem, 7vw, 5rem) 0;
+  border-block: 3px double #232922;
+}
+
+header {
+  width: min(100%, 57rem);
+  margin: auto;
+}
+
+h1, p {
+  margin: 0;
+}
+
+h1 img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.subtitle::before {
+  display: block;
+  width: 40%;
+  height: 1px;
+  margin: 0 auto clamp(0.65rem, 1.6vw, 1.25rem);
+  background: #dea848;
+  content: "";
+}
+
+.subtitle {
+  margin-top: clamp(0.8rem, 2.1vw, 1.6rem);
+  font-size: clamp(1.15rem, 3vw, 2.2rem);
+  font-style: italic;
+  line-height: 1.1;
+}
+
+.status {
+  margin-top: clamp(1.75rem, 4vw, 3rem);
+  color: #ab371c;
+  font: bold 0.8rem/1.5 "Courier New", monospace;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.description {
+  max-width: 35ch;
+  margin: 0.5rem auto 0;
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+}
+
+footer {
+  padding-top: 1.25rem;
+  font-size: 1rem;
+  font-style: italic;
+}
