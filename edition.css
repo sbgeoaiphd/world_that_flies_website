@@ -1,0 +1,45 @@
+.edition {margin-inline:var(--edge); padding-bottom:clamp(38px,5vw,80px)}
+.feature-film, .endnotes, .guide-grid {display:grid; gap:clamp(20px,3vw,50px)}
+.feature-film {
+  grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);
+  align-items:center;
+  padding-block:clamp(24px,3vw,48px);
+  border-bottom:1px solid var(--line);
+}
+.feature-film h2, .guide-heading h1 {font-style:italic}
+.cast-clips {display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr)); gap:8px 14px; margin-top:16px}
+.cast-clips span, .cast-transcripts summary {font:13px/1.4 var(--sans)}
+.cast-clips audio {display:block; width:100%; height:32px; margin-top:4px}
+.cast-transcripts {margin-top:6px}
+.cast-transcripts summary {width:fit-content; color:var(--muted); cursor:pointer}
+.feature-film p:not(.eyebrow), .endnotes p {margin-block:12px}
+.edition .text-link {display:table; margin-top:10px}
+.endnotes, .guide-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+.endnotes {padding-block:32px}
+.endnotes figure img {display:block; width:100%; height:auto; aspect-ratio:2/1; object-fit:cover}
+.endnotes figcaption {margin:6px 0 16px; font:12px/1.4 var(--sans); color:var(--muted)}
+.endnotes .eyebrow {margin:0 0 4px}
+.radio-feature, .aircraft-guide {display:grid; grid-template-columns:3fr 2fr; align-items:center; gap:clamp(18px,4vw,64px); padding-block:clamp(22px,3vw,40px)}
+.radio-feature {grid-template-columns:minmax(0,320px) minmax(0,1fr); gap:12px clamp(18px,3vw,48px); border-top:1px solid var(--line)}
+.station-still {display:block; width:100%; height:auto; grid-row:span 2}
+.radio-feature h2, .aircraft-guide h2 {font-size:clamp(30px,3vw,46px)}
+.radio-feature h2 {margin-bottom:8px}
+.radio-feature p a {text-decoration:underline; text-underline-offset:.15em}
+.radio-feature .cast-clips {margin-top:0}
+.aircraft-guide {border-top:2px solid var(--ink)}
+.endnotes h2, .guide-grid h2 {font-size:clamp(28px,2.6vw,40px)}
+.guide-heading {padding-block:clamp(24px,4vw,60px)}
+.guide-heading p {margin-top:12px}
+.guide-grid article {border-top:1px solid var(--ink); padding-top:14px}
+.guide-grid figure img {width:100%; aspect-ratio:16/9; object-fit:contain; background:#e8e7df}
+.guide-grid figcaption {margin-block:5px 16px; font:12px/1.4 var(--sans); color:var(--muted)}
+.guide-grid .eyebrow {margin-bottom:3px}
+.guide-grid h2 {margin-bottom:8px}
+@media(min-width:1100px) {
+  .radio-feature {grid-template-columns:minmax(0,320px) minmax(0,1.5fr) minmax(0,1fr)}
+  .station-still {grid-row:auto}
+}
+@media(max-width:700px) {
+  .feature-film, .endnotes, .guide-grid, .radio-feature, .aircraft-guide {grid-template-columns:1fr}
+  .station-still {grid-row:auto; max-width:400px}
+}

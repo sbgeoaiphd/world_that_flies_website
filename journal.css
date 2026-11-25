@@ -1,0 +1,236 @@
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('/assets/fonts/eb-garamond.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('/assets/fonts/eb-garamond-italic.woff2') format('woff2');
+  font-style: italic;
+  font-weight: 400 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Courier Prime';
+  src: url('/assets/fonts/courier-prime.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Courier Prime';
+  src: url('/assets/fonts/courier-prime-bold.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('/assets/fonts/noto-sans.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+/* The journal uses paper, ink and a vermilion spot colour throughout. */
+:root {
+  --paper: #f7f3e9;
+  --ink: #232922;
+  --muted: #54584e;
+  --dark: #222922;
+  --gold: #b44524;
+  --line: #b6b7a9;
+  --accent: #ab371c;
+  --serif: 'EB Garamond', Georgia, serif;
+  --mono: 'Courier Prime', 'Courier New', monospace;
+  --sans: 'Noto Sans', Arial, sans-serif;
+  --edge: max(5vw, calc((100vw - 1400px) / 2));
+}
+html {scroll-padding-top: 16px}
+body {background:var(--paper); color:var(--ink); font:18px/1.6 var(--serif)}
+button, select, figcaption, .photo-note, .video-note, .fine, .status, .button,
+.play-label, .text-link, .footer-links, .release dl, .entry-availability, .skip {font-family:var(--sans)}
+.site-header {padding:13px var(--edge); border-bottom:1px solid var(--ink)}
+.site-header .brand {font: bold 17px var(--serif); letter-spacing:-.5px}
+.site-header nav {gap:24px}
+.site-header nav a, .back, .chapter-nav a, .imprint, .route,
+.contents small, .flight-titles small, .eyebrow, .fleet-invite small {
+  font: bold 12px/1.5 var(--mono);
+}
+.site-header:has(+main .journal-mast) {border:0}
+.journal-mast, .cover-spread {margin-inline:var(--edge)}
+.journal-mast {border-block:3px double var(--ink); text-align:center; padding:9px 0 11px}
+.imprint {display:flex; justify-content:space-between; text-transform:uppercase; letter-spacing:.12em}
+.journal-mast h1 {width:min(69%, 950px); margin:clamp(16px,2vw,30px) auto 0}
+.journal-mast h1 img {display:block; width:100%; height:auto}
+.journal-mast h1::after {content:""; display:block; width:40%; height:clamp(1px,.15vw,2px); margin:clamp(12px,1.6vw,23px) auto 0; background:#dea848}
+.journal-mast p {font:italic clamp(18px,2.3vw,34px)/1.2 var(--serif); letter-spacing:.07em; margin:clamp(8px,1vw,14px) auto 6px}
+.cover-spread {display:grid; grid-template-columns:minmax(0,2.35fr) minmax(230px,.85fr); gap:clamp(24px,3vw,50px); padding:28px 0 50px}
+.cover-story[hidden] {display:none}
+.cover-picture {display:block; aspect-ratio:1.68; position:relative; background:#373e3b; overflow:hidden}
+.cover-picture img {width:100%; height:100%; object-fit:cover}
+.cover-picture:after {content:""; position:absolute; inset:0; background:linear-gradient(180deg,#111c20c9,transparent 58%); pointer-events:none}
+.cover-lettering {position:absolute; left:5%; top:7%; right:4%; z-index:1; color:#fff7e4}
+.cover-lettering>span {text-transform:uppercase; color:#ffedbf; font:bold 12px var(--mono); letter-spacing:.19em}
+.cover-lettering h2 {font:italic clamp(38px,5.5vw,88px)/.96 var(--serif); letter-spacing:-.025em; margin:12px 0; max-width:12ch}
+.cover-open {position:absolute; right:16px; bottom:16px; z-index:1; display:grid; place-items:center; width:40px; height:40px; color:var(--ink); background:var(--paper); border-radius:50%; font-size:23px}
+.cover-story.l17 .cover-picture img {object-fit:contain; object-position:center 85%}
+.cover-caption {padding:15px 0 0; display:grid; grid-template-columns:minmax(120px,.8fr) 2fr; gap:6px 20px; align-items:start}
+.route {color:var(--accent); text-transform:uppercase; letter-spacing:.08em}
+.cover-caption p {font:19px/1.45 var(--serif)}
+.cover-caption a {grid-column:2}
+.cover-caption a,.editor-note a,.radio-spread a,.fleet-invite span {width:fit-content; font:bold 13px/2 var(--sans); text-decoration:underline; text-underline-offset:4px}
+.contents {padding-left:22px; border-left:1px solid var(--line)}
+.contents h2 {font:italic 32px/1.1 var(--serif); padding-bottom:14px; border-bottom:2px solid}
+.contents-item {width:100%; display:flex; justify-content:space-between; align-items:center; gap:8px; text-align:left; background:transparent; color:var(--ink); padding:14px 5px; border:0; border-bottom:1px solid var(--line); text-decoration:none; cursor:pointer}
+.contents-item strong,.contents-item small,.contents-item>span>span {display:block}
+.contents-item strong {font:clamp(20px,2.05vw,32px)/1.1 var(--serif); letter-spacing:-.04em}
+.contents-item small {color:var(--accent); font-size:10px; letter-spacing:.1em; text-transform:uppercase; margin-bottom:3px}
+.contents-item>span>span {font:12px/1.5 var(--sans); margin-top:5px}
+.contents-item[aria-pressed="true"] {color:var(--accent); border-bottom-color:var(--accent); box-shadow:inset 3px 0 var(--accent); padding-left:12px}
+.contents-item:hover {background:#eae4d6}
+.contents-arrow {font-size:22px}
+.editor-note {margin-top:20px}
+.editor-note p {font:italic 18px/1.4 var(--serif)}
+.editor-note a {display:block; margin-top:8px}
+.radio-spread {border-block:1px solid var(--ink); background:#e6dfcb; padding:36px var(--edge); display:grid; grid-template-columns:minmax(180px,.85fr) 1.6fr; gap:6%; align-items:center}
+.radio-spread h2,.fleet-invite h2 {font-size:clamp(34px,3.6vw,58px); letter-spacing:-.05em}
+.radio-spread p:not(.eyebrow) {font:18px/1.5 var(--serif); margin:12px 0}
+.radio-spread audio {display:block; width:min(100%,460px); margin-block:15px 5px}
+.dial {text-align:center; display:grid; justify-items:center; padding:28px; color:#f5ddaf; background:#30352d; border:7px double #b1a88b; box-shadow:inset 0 0 0 5px #30352d}
+.dial i {width:100%; height:36px; background:linear-gradient(90deg,transparent 57%,#ff7446 57% 58%,transparent 58%),repeating-linear-gradient(90deg,#dfcf9d 0 1px,transparent 1px 4%); border-block:1px solid #ab9e7a}
+.dial b {font:italic clamp(23px,3vw,46px) Georgia,serif; margin-top:12px}
+.dial span {font:12px var(--mono); text-transform:uppercase; letter-spacing:.22em}
+.section {padding-inline:var(--edge)}
+.dark,.story-voices {background:#242b26}
+.watch h2,.story-voices h2,.section-heading h2 {font-style:italic}
+.fleet-invite {padding:60px var(--edge)}
+.fleet-invite a {display:grid; grid-template-columns:1fr 1fr; gap:5%; align-items:center; text-decoration:none}
+.fleet-invite img {width:100%; border:8px solid white; transform:rotate(-2deg); box-shadow:0 5px 14px #2222}
+.fleet-invite h2 {margin:8px 0 18px}
+.flight-cover {--plate:#e7c5a8; background:var(--plate); padding:32px var(--edge); display:grid; grid-template-columns:.84fr 1.3fr; gap:4%; align-items:center; border-bottom:1px solid var(--ink)}
+.flight-cover.hohenweg {--plate:#c8ddd9}
+.flight-cover.sulztal {--plate:#cdd8de}
+.flight-cover.l17 {--plate:#f0dbaf}
+.flight-titles .back {margin:0 0 28px}
+.flight-titles .eyebrow {margin-bottom:10px}
+.flight-titles h1 {font-size:clamp(38px,5.7vw,93px); line-height:.95; letter-spacing:-.065em}
+.flight-titles .subtitle {font-size:clamp(22px,2.2vw,36px); line-height:1.15; margin:16px 0 23px}
+.flight-titles .route {color:var(--ink); padding:12px 0 6px; border-top:1px solid #343b3555}
+.flight-titles small {font-size:11px}
+.flight-cover .wide-photo {width:100%; height:auto; min-height:0; aspect-ratio:1.75; background:#d5d9d1; border:6px solid #fffdf6; box-shadow:0 4px 9px #2222; transform:rotate(1deg)}
+.chapter-nav,.atlas-nav {display:flex; flex-wrap:wrap; gap:10px 26px; padding:15px var(--edge); border-bottom:1px solid var(--line); background:var(--paper)}
+.chapter-nav a,.atlas-nav a {text-decoration:underline; text-decoration-color:var(--line)}
+.photo-note {padding:8px var(--edge)}
+.eyebrow {color:var(--accent); letter-spacing:.12em}
+.feature-list {background:#eae6da}
+.feature-groups article {border-top:2px solid var(--ink)}
+.feature-groups dt {font:600 18px/1.4 var(--serif)}
+.feature-groups dd {font:17px/1.55 var(--serif)}
+.voice-excerpt {border-top:2px solid #e3c99a}
+.voice-excerpt blockquote>p:not(.fine) {line-height:1.35}
+.atlas-heading {max-width:none; background:#dce3d9; border-bottom:3px double; padding-block:50px}
+.atlas-heading h1 {font-style:italic; font-size:clamp(44px,7vw,110px); letter-spacing:-.055em}
+.atlas-heading>p:last-child {font:20px/1.45 var(--serif); margin-top:16px}
+.atlas-nav {border-top:0}
+.entry-title {border-top:3px double var(--ink); padding-top:18px}
+.entry-number {font:16px var(--mono); border:1px solid; color:var(--accent); padding:10px}
+.aircraft-features {background:#ebe7da; border-left:3px solid var(--accent)}
+.entry-grid figure img {border:6px solid #fff; box-shadow:0 3px 8px #2221}
+.release-banner {background:#e1e5d6; border-top:3px double}
+.about {max-width:1050px; padding-inline:6%; margin:0 auto}
+.about h1 {font-style:italic}
+.button,.play-symbol {background:var(--ink); color:var(--paper)}
+.play-symbol {border:1px solid var(--paper)}
+.text-link {border-color:var(--accent)}
+body>footer {background:#202722; padding-inline:var(--edge); border-top:4px double #b9b7a9}
+@media(max-width:850px) {
+  .cover-spread {grid-template-columns:minmax(0,1.7fr) minmax(195px,.8fr); gap:20px}
+  .cover-picture {aspect-ratio:1.14}
+  .cover-caption {display:block}
+  .cover-caption a {display:block}
+  .cover-caption p {margin:8px 0}
+  .contents {padding-left:16px}
+}
+@media(max-width:680px) {
+  :root {--edge:5%}
+  .site-header {display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding-block:12px}
+  .site-header nav {margin:0; gap:14px}
+  .site-header nav a {font-size:11px}
+  .imprint {font-size:9px}
+  .journal-mast {padding-block:8px 12px}
+  .journal-mast h1 {width:100%; margin-top:18px}
+  .cover-spread {display:flex; flex-direction:column; gap:25px; padding:16px 0 30px}
+  .cover-picture {aspect-ratio:1.35}
+  .cover-lettering h2 {font-size:47px}
+  .contents {padding:0; border:0}
+  .contents-item {padding-block:11px}
+  .contents-item strong {font-size:24px}
+  .editor-note {margin:16px 0}
+  .radio-spread,.fleet-invite a,.flight-cover {grid-template-columns:1fr; gap:20px}
+  .dial {padding:14px 25px}
+  .radio-spread {padding-block:26px}
+  .fleet-invite {padding-block:35px}
+  .flight-titles .back {margin-bottom:14px}
+  .flight-cover {padding-block:18px 24px}
+  .flight-titles h1 {font-size:clamp(37px,10vw,62px)}
+  .chapter-nav {gap:9px 18px}
+}
+/* A photographic key to the field guide. */
+.atlas-nav {display:grid; grid-template-columns:repeat(auto-fit,minmax(min(155px,100%),1fr)); gap:22px 14px; background:#dce3d9; padding-block:20px 30px}
+.atlas-nav a {display:grid; grid-template-rows:auto 1fr auto; align-content:start; color:var(--ink); text-decoration:none}
+.atlas-nav img {display:block; width:100%; aspect-ratio:1.75; object-fit:cover; border:4px solid #fffdf5}
+.atlas-nav strong {font:21px/1.1 var(--serif); margin:8px 0 5px}
+.atlas-nav small {font:bold 11px/1.3 var(--mono); color:var(--muted)}
+.atlas-nav a:hover strong,.atlas-nav a:focus-visible strong {text-decoration:underline; text-underline-offset:3px}
+@media(max-width:440px) {
+  .atlas-nav {grid-template-columns:1fr 1fr}
+  .atlas-nav strong {font-size:18px}
+}
+
+.film-excerpt {display:block; width:100%; height:auto; aspect-ratio:16 / 9; background:#222922}
+.entry-grid figure:has(.film-excerpt) figcaption,.panorama-excerpt figcaption {color:var(--muted); font:14px/1.5 var(--sans); margin-top:10px}
+.panorama-excerpt {margin:14px 0 0}
+
+figure a[aria-haspopup="dialog"] {cursor:zoom-in; display:block}
+.wide-photo > a {height:100%}
+html:has(.photo-viewer[open]) {overflow:hidden}
+.photo-viewer {box-sizing:border-box; inset:0; margin:auto; width:100%; height:100%; max-width:none; max-height:none; padding:clamp(12px,2.5vw,38px); border:0; background:transparent; color:white; cursor:zoom-out}
+.photo-viewer::backdrop {background:rgb(12 18 16 / .95)}
+.photo-viewer[open] {display:flex; flex-direction:column; gap:10px}
+.photo-viewer button {align-self:flex-end; padding:9px 14px; background:transparent; color:white; border:1px solid #aaa; font:14px var(--sans); cursor:pointer}
+.photo-viewer figure {flex:1; min-height:0; margin:0; display:grid; grid-template-rows:minmax(0,1fr) auto; gap:12px}
+.photo-viewer img {width:100%; height:100%; object-fit:contain}
+.photo-viewer figcaption {font:16px/1.4 var(--sans); text-align:center}
+
+.photographic-section {border-top:1px solid var(--line)}
+.photographic-section .section-heading {align-items:baseline}
+.photographic-section .section-heading p {max-width:38ch}
+.photographic-grid {display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:30px 22px}
+.photographic-grid figure {margin:0; min-width:0}
+.photographic-grid figure a {display:block; overflow:hidden}
+.photographic-grid img {display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:cover}
+.photographic-grid figcaption {margin-top:8px; font:16px/1.4 var(--sans)}
+.teasers-photos {background:#202722; color:var(--paper)}
+.teasers-photos .photographic-grid {grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px}
+.teasers-photos img {aspect-ratio:3/2}
+@media(max-width:680px) {
+  .photographic-grid {grid-template-columns:1fr; gap:20px}
+  .teasers-photos .photographic-grid {grid-template-columns:1fr 1fr}
+  .teasers-photos figure:first-child {grid-column:1/-1}
+}
+
+/* Luftpost route book and aircraft plate */
+.postal-plate {margin:0; min-width:0}
+.postal-plate img {display:block; width:100%; height:auto; border:6px solid var(--paper)}
+.postal-plate figcaption {font:.9rem/1.4 var(--sans); margin-top:.65rem}
+.postal-intro {max-width:68ch; margin-bottom:2.5rem}
+.postal-rounds .postal-stops {font:1rem/1.55 var(--mono); margin-block:.65rem 1rem}
+.postal-rounds h4 {font:600 1.15rem/1.4 var(--serif); margin-top:1.2rem}
+.postal-rounds h4 + p {margin-block:.25rem .45rem}
